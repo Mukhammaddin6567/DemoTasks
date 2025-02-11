@@ -1,4 +1,4 @@
-package classes;
+package oop.classes;
 
 public class Rectangle {
     private double sideA;

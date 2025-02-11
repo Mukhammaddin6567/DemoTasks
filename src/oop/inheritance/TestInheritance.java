@@ -1,4 +1,4 @@
-package inheritance;
+package oop.inheritance;
 
 class TestInheritance {
 

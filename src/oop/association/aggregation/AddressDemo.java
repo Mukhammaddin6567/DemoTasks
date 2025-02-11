@@ -1,4 +1,4 @@
-package association.aggregation;
+package oop.association.aggregation;
 
 class Address {
     private String city;

@@ -1,4 +1,4 @@
-package coupling.loose;
+package oop.coupling.loose;
 
 // Loose Coupling Using Interfaces
 interface Engine {

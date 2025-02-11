@@ -1,4 +1,4 @@
-package coupling.tight;
+package oop.coupling.tight;
 
 // Tightly Coupled Classes
 class Engine {

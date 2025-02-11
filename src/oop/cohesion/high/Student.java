@@ -1,4 +1,4 @@
-package cohesion.high;
+package oop.cohesion.high;
 
 // High Cohesion Example
 class Student {

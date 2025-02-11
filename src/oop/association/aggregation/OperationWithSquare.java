@@ -1,4 +1,4 @@
-package association.aggregation;
+package oop.association.aggregation;
 
 class Operation {
     int square(int n) {

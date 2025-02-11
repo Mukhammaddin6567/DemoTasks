@@ -1,4 +1,4 @@
-package cohesion.low;
+package oop.cohesion.low;
 
 class Student {
     // Student-related properties
