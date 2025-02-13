@@ -27,6 +27,11 @@ class GenericTest {
         for (Shape shape : list) shape.draw();
     }
 
+    static void testLowerBounded(List<? super Circle> list) {
+        for (Object object : list) System.out.printf("%s ", object);
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         List<Rectangle> rectangleList = new ArrayList<>();
         rectangleList.add(new Rectangle());
@@ -37,5 +42,17 @@ class GenericTest {
 
         drawShapes(rectangleList);
         drawShapes(circleList);
+
+        List<Shape> shapes = new ArrayList<>();
+        shapes.add(() -> {
+        });
+        shapes.add(() -> {
+        });
+        shapes.add(() -> {
+        });
+
+//        testLowerBounded(rectangleList); Compile Time Error
+        testLowerBounded(circleList);
+        testLowerBounded(shapes);
     }
 }
