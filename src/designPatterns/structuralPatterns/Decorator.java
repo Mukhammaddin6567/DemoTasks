@@ -1,12 +1,13 @@
 package designPatterns.structuralPatterns;
 
 interface Coffee {
-    String getDescription();    // Returns the description of the coffee
+    String description();    // Returns the description of the coffee
 
-    double getCost();           // Returns the cost of the coffee
+    double cost();           // Returns the cost of the coffee
 }
 
-class CoffeeImpl implements Coffee {
+// can be converted to record
+/*class CoffeeImpl implements Coffee {
     private final String description;
     private final double cost;
 
@@ -24,6 +25,10 @@ class CoffeeImpl implements Coffee {
     public String getDescription() {
         return this.description;
     }
+}*/
+
+record CoffeeImpl(String description, double cost) implements Coffee {
+    
 }
 
 abstract class CoffeeDecorator implements Coffee {
@@ -34,13 +39,13 @@ abstract class CoffeeDecorator implements Coffee {
     }
 
     @Override
-    public double getCost() {
-        return decoratedCoffee.getCost();
+    public double cost() {
+        return decoratedCoffee.cost();
     }
 
     @Override
-    public String getDescription() {
-        return decoratedCoffee.getDescription();
+    public String description() {
+        return decoratedCoffee.description();
     }
 }
 
@@ -51,13 +56,13 @@ class MilkDecorator extends CoffeeDecorator {
     }
 
     @Override
-    public double getCost() {
-        return super.decoratedCoffee.getCost() + 1.5;
+    public double cost() {
+        return super.decoratedCoffee.cost() + 1.5;
     }
 
     @Override
-    public String getDescription() {
-        return super.getDescription() + " with milk";
+    public String description() {
+        return super.description() + " with milk";
     }
 }
 
@@ -68,13 +73,13 @@ class SugarDecorator extends CoffeeDecorator {
     }
 
     @Override
-    public double getCost() {
-        return super.getCost() + 0.5;
+    public double cost() {
+        return super.cost() + 0.5;
     }
 
     @Override
-    public String getDescription() {
-        return super.getDescription() + " with sugar";
+    public String description() {
+        return super.description() + " with sugar";
     }
 }
 
@@ -82,18 +87,18 @@ class Decorator {
     public static void main(String[] args) {
         // crate a black coffee
         Coffee coffee = new CoffeeImpl("Black Coffee", 2.5);
-        System.out.println(coffee.getDescription() + " Cost $: " + coffee.getCost());
+        System.out.println(coffee.description() + " Cost $: " + coffee.cost());
 
         // add milk to the coffee
         coffee = new MilkDecorator(coffee);
-        System.out.println(coffee.getDescription() + " Cost $: " + coffee.getCost());
+        System.out.println(coffee.description() + " Cost $: " + coffee.cost());
 
         // add sugar to the coffee
         coffee = new SugarDecorator(coffee);
-        System.out.println(coffee.getDescription() + " Cost $: " + coffee.getCost());
+        System.out.println(coffee.description() + " Cost $: " + coffee.cost());
 
         // add another milk to the coffee
         coffee = new MilkDecorator(coffee);
-        System.out.println(coffee.getDescription() + " Cost $: " + coffee.getCost());
+        System.out.println(coffee.description() + " Cost $: " + coffee.cost());
     }
 }
